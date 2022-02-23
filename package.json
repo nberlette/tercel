@@ -1,0 +1,51 @@
+{
+  "name": "tercel",
+  "version": "22.2.22",
+  "license": "MIT",
+  "author": {
+    "name": "Nicholas Berlette",
+    "email": "nick@berlette.com"
+  },
+  "repository": "nberlette/tercel",
+  "homepage": "https://n.berlette.com/tercel",
+  "description": "Tercel: the red-headed stepchild of Vercel's Design System",
+  "readme": "https://github.com/nberlette/tercel#readme",
+  "bugs": {
+    "url": "https://github.com/nberlette/tercel/issues",
+    "email": "bugs@berlette.com"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "typings": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "default": "./index.js"
+    },
+    "./css": "./index.css",
+    "./min.css": "./index.min.css",
+    "./index.d.ts": "./index.d.ts",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "files",
+    "dist",
+    "index.js",
+    "index.mjs",
+    "index.d.ts",
+    "index.css",
+    "index.min.css"
+  ],
+  "keywords": [
+    "tercel",
+    "css",
+    "design",
+    "variables",
+    "ui"
+  ]
+}
