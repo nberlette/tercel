@@ -1,9 +1,7 @@
 /**
- * @preserve tercel/style.css
- * @package tercel
- * @version 22.2.22
- * @author Nicholas Berlette <nick@berlette.com>
- * @license MIT
+ * @preserve tercel@22.2.23
+ * @license MIT (c) 2022+ Nicholas Berlette <nick@berlette.com>
+ * @link https://github.com/nberlette/tercel
  */
 :root {
   --code-before: "\`";
@@ -74,6 +72,8 @@
   --accents-8: #111;
   --foreground: #000;
   --background: #fff;
+  --body-gradient-0: rgba(255,255,255,0);
+  --body-gradient-100: rgba(255,255,255,1);
   --selection: var(--cyan);
   --success: #0070f3;
   --success-light: #3291ff;
@@ -101,7 +101,7 @@
   --shadow-xl: 0 3.5rem 7rem #0002;
   --shadow-2xl: 0 4rem 10rem #0002;
   --btn-shadow: 0 0.3rem 1rem #0002;
-  --btn-shadow-hover: 0 7px 20px #0003
+  --btn-shadow-hover: 0 0.7rem 2rem #0003
 }
 
 /* overlap */
@@ -112,9 +112,7 @@
   --scroller-end: hsla(0, 0%, 100%, 0)
 }
 
-/* dark mode color palette */
-.dark,
-.dark-theme {
+.dark, .dark-theme, :root {
   --accents-1: #111;
   --accents-2: #333;
   --accents-3: #444;
@@ -123,8 +121,8 @@
   --accents-6: #999;
   --accents-7: #eaeaea;
   --accents-8: #fafafa;
-  --foreground: #fff;
-  --background: #000;
+  --foreground: #fafafa;
+  --background: #111;
   --selection: var(--purple);
   --success: #0070f3;
   --success-light: #3291ff;
@@ -153,7 +151,72 @@
   --shadow-xl: 0 3.5rem 7rem #0002;
   --shadow-2xl: 0 4rem 10rem #0002;
   --btn-shadow: 0 0.3rem 1rem #0002;
-  --btn-shadow-hover: 0 7px 20px #0003
+  --btn-shadow-hover: 0 7px 20px #0003;
+}
+
+/* dark mode color palette */
+@media (prefers-color-scheme: dark) {
+  :not(.light) :root {
+    --accents-1: #111;
+    --accents-2: #333;
+    --accents-3: #444;
+    --accents-4: #666;
+    --accents-5: #888;
+    --accents-6: #999;
+    --accents-7: #eaeaea;
+    --accents-8: #fafafa;
+    --foreground: #fff;
+    --background: #000;
+    --body-gradient-0: rgba(17,17,25,0);
+    --body-gradient-100: rgba(17,17,25,1);
+    --selection: var(--purple);
+    --success: #0070f3;
+    --success-light: #3291ff;
+    --success-dark: #0366d6;
+    --error: #e00;
+    --error-light: #ff1a1a;
+    --error-dark: #c00;
+    --warning: #f5a623;
+    --warning-light: #f7b955;
+    --warning-dark: #f49b0b;
+    --alert: #ff0080;
+    --purple: #f81ce5;
+    --cyan: #79ffe1;
+    --violet: #7928ca;
+    --link-color: var(--foreground);
+    --link-style: underline;
+    --secondary: var(--accents-5);
+    --code: var(--cyan);
+    --dropdown-box-shadow: 0 0 0 1px #333;
+    --dropdown-triangle-stroke: #333;
+    --scroller-start: rgba(0, 0, 0, 0.3);
+    --portal-opacity: 0.75;
+    --shadow-sm: 0 0.5rem 1rem #0002;
+    --shadow-md: 0 1rem 3rem #0002;
+    --shadow-lg: 0 3rem 6rem #0002;
+    --shadow-xl: 0 3.5rem 7rem #0002;
+    --shadow-2xl: 0 4rem 10rem #0002;
+    --btn-shadow: 0 0.3rem 1rem #0002;
+    --btn-shadow-hover: 0 7px 20px #0003
+  }
+}
+
+html {
+  font-size: 0.63em;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-size: 1.2em;
+  line-height: 1.5;
+  min-height: 100%;
+  position: relative;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  padding: 0 0 2rem 0;
+  background: transparent !important;
 }
 
 body,
@@ -161,23 +224,43 @@ html {
   background-color: var(--background);
   color: var(--foreground);
   margin: 0;
-  padding: 0
+  padding: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
 }
 
-html {
-  font-size: 62.5%
+body:before {
+  content: '';
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  user-select: none;
+  user-zoom: fixed;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  font-size: 1rem;
-  line-height: 1.5;
-  min-height: 100%;
-  position: relative;
-  overflow-x: hidden;
-  font-family: var(--font-sans)
+body.radial-gradient:before {
+  box-shadow: inset 0 0 14vw 10vw var(--background, #f0f0f0);
+  opacity: 0.5;
+  background: radial-gradient(50% 50% at 50% 50%, var(--body-gradient-0) 0%, var(--body-gradient-100) 100%);
+}
+
+body>.container {
+  max-width: 70vw;
+  margin: 2rem auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 *,
@@ -427,19 +510,19 @@ blockquote :last-child,
 
 .card {
   margin: 0;
-  padding: var(--gap) var(--gap);
+  padding: var(--gap-1\/2) var(--gap);
   width: 100%;
   transition: all .3s ease;
   border-radius: var(--radius);
-  box-shadow: none;
+  box-shadow: var(--shadow-sm), 0 -10px 20px inset var(--background);
   box-sizing: border-box;
   color: var(--foreground);
-  background-color: var(--background);
+  background-color: var(--accents-1);
   border: 1px solid var(--accents-2)
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md)
+  box-shadow: var(--shadow-md), var(--shadow-sm);
 }
 
 .card img {
@@ -460,7 +543,6 @@ blockquote :last-child,
 
 .card.pin {
   border: 1px solid var(--accents-2);
-  box-shadow: var(--shadow-sm)
 }
 
 .badge {
@@ -1440,65 +1522,6 @@ table td:first-child {
 .fade-in-leave-active {
   opacity: 0;
   margin-top: 5px
-}
-
-.light,
-:root {
-  --body-gradient-from: #fffd;
-  --body-gradient-to: #fff0;
-}
-
-.dark,
-.dark-theme,
-:root {
-  --body-gradient-from: #123f;
-  --body-gradient-to: #1230;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  min-width: 100vw;
-  width: 100vw;
-  height: 100vh;
-}
-
-body:before {
-  content: '';
-  display: block;
-  width: 100vw;
-  height: 100vh;
-  min-width: 100vw;
-  min-height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-shadow: inset 0 0 14vw 10vw var(--background, #f0f0f0);
-  z-index: -1;
-  opacity: 0.75;
-  background: radial-gradient(50% 50% at 50% 50%,
-      var(--body-gradient-from) 0%,
-      var(--body-gradient-to) 100%);
-  user-select: none;
-  user-zoom: fixed;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
-}
-
-body {
-  padding: 0 0 2rem 0;
-  background: transparent !important;
-}
-
-body>.container {
-  max-width: 70vw;
-  margin: 2rem auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 pre,
