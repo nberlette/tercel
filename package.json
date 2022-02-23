@@ -1,6 +1,6 @@
 {
   "name": "tercel",
-  "version": "22.2.22",
+  "version": "22.2.23",
   "license": "MIT",
   "author": {
     "name": "Nicholas Berlette",
@@ -29,6 +29,8 @@
     },
     "./css": "./index.css",
     "./min.css": "./index.min.css",
+    "./index.css": "./index.css",
+    "./index.min.css": "./index.min.css",
     "./index.d.ts": "./index.d.ts",
     "./package.json": "./package.json"
   },
