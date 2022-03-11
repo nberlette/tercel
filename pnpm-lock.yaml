@@ -1,12 +1,12 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@nberlette/prettier': link:nberlette/prettier@1.1.0
+  '@nberlette/prettier': github:nberlette/prettier
   prettier: 2.5.1
   uglifycss: 0.0.29
 
 devDependencies:
-  '@nberlette/prettier': link:nberlette/prettier@1.1.0
+  '@nberlette/prettier': github.com/nberlette/prettier/950f22afdb227b363725aa9cfe3308531848ce82
   prettier: 2.5.1
   uglifycss: 0.0.29
 
@@ -22,4 +22,10 @@ packages:
     resolution: {integrity: sha512-J2SQ2QLjiknNGbNdScaNZsXgmMGI0kYNrXaDlr4obnPW9ni1jljb1NeEVWAiTgZ8z+EBWP2ozfT9vpy03rjlMQ==}
     engines: {node: '>=6.4.0'}
     hasBin: true
+    dev: true
+
+  github.com/nberlette/prettier/950f22afdb227b363725aa9cfe3308531848ce82:
+    resolution: {tarball: https://codeload.github.com/nberlette/prettier/tar.gz/950f22afdb227b363725aa9cfe3308531848ce82}
+    name: '@nberlette/prettier'
+    version: 1.1.0
     dev: true
