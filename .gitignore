@@ -1,0 +1,11 @@
+node_modules
+.DS_Store
+Thumbs.db
+.*.log
+.env
+.env.local
+.npm
+.cache
+.pnpm
+.yarn
+**/node_modules/**

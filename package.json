@@ -15,8 +15,12 @@
     "email": "bugs@berlette.com"
   },
   "scripts": {
-    "test": ""
+    "test": "",
+    "build": "uglifycss index.css > index.min.css",
+    "prebuild": "prettier --write index.*"
   },
+  "sideEffects": false,
+  "prettier": "@nberlette/prettier",
   "main": "./index.js",
   "module": "./index.mjs",
   "types": "./index.d.ts",
@@ -25,7 +29,7 @@
     ".": {
       "types": "./index.d.ts",
       "import": "./index.mjs",
-      "default": "./index.js"
+      "require": "./index.js"
     },
     "./css": "./index.css",
     "./min.css": "./index.min.css",
@@ -49,5 +53,10 @@
     "design",
     "variables",
     "ui"
-  ]
+  ],
+  "devDependencies": {
+    "@nberlette/prettier": "github:nberlette/prettier",
+    "prettier": "2.5.1",
+    "uglifycss": "0.0.29"
+  }
 }

@@ -1,1 +1,1 @@
-export * from "./style.css";
+export * from "./index.min.css";
